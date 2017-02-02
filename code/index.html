@@ -1,0 +1,32 @@
+<html>
+  <script type="text/javascript" src="../common/webgl-utils.js"></script>
+  <script type="text/javascript" src="../common/initShaders.js"></script>
+  <script type="text/javascript" src="../common/MV.js"></script>
+  <script type="text/javascript" src="cubes.js"></script>
+
+  <!--Create vertex shader (Req. 2)-->
+  <script id="vertex-shader" type="x-shader/x-vertex">
+    attribute vec4 vPosition;
+    uniform mat4 modelViewMatrix;
+
+    void main() {  
+      gl_Position = modelViewMatrix * vPosition;
+    }
+  </script>
+
+  <!--Create fragment shader (Req. 2)-->
+  <script id="fragment-shader" type="x-shader/x-fragment">
+    precision mediump float;
+    uniform vec4 color;
+    void main() {
+      gl_FragColor = color;
+    }
+  </script>
+
+  <!--Create canvas w/ appropriate dimensions (Req. 2)-->
+  <body>
+    <div>
+      <canvas id="gl-canvas" width="960" height="960"></canvas>
+    </div>
+  </body>
+</html>
